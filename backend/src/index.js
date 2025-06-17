@@ -15,7 +15,11 @@ import { app, server } from "./lib/socket.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
+
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 
 // Fix __dirname in ESM:
 const __filename = fileURLToPath(import.meta.url);
